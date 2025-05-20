@@ -19,8 +19,8 @@ function HomepageHeader() {
         <div className={styles.buttons}>
           <Link
             className="button button--secondary button--lg"
-            to="/docs/category/начало-работы">
-            ZennoDroid Pro Tutorial - 5min ⏱️
+            to="/docs/category/знакомство">
+            Приступим к знакомству 📲
           </Link>
         </div>
       </div>
@@ -32,8 +32,8 @@ export default function Home() {
   const {siteConfig} = useDocusaurusContext();
   return (
     <Layout
-      title={`ZennoDroid Documentation`}
-      description="The Easiest Way to Automate Android Apps Without Coding">
+      title={`Документация ZennoDroid`}
+      description="Самый простой способ автоматизировать приложения для Android без знаний кода">
       <HomepageHeader />
       <main>
         <HomepageFeatures />
