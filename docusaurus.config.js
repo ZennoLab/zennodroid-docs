@@ -8,8 +8,8 @@ import {themes as prismThemes} from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'ZennoDroid Docs',
-  tagline: 'The Easiest Way to Automate Android Apps Without Coding',
+  title: 'Документация ZennoDroid',
+  tagline: 'Простейший способ автоматизировать приложения для Android без знания кода',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
@@ -41,7 +41,12 @@ const config = {
       ({
         docs: {
           sidebarPath: './sidebars.js',
-        },
+          /*routeBasePath: '/',
+          showLastUpdateTime: true,
+            return locale === 'ru'
+              ? `https://github.com/ZennoLab/zennodroid-docs/tree/dev/${versionDocsDirPath}/${docPath}`
+              : `https://github.com/ZennoLab/zennodroid-docs/tree/dev/i18n/en/docusaurus-plugin-content-docs/current/${docPath}`;*/
+          },
         blog: {
           showReadingTime: true,
         },
@@ -68,12 +73,16 @@ const config = {
         },
         items: [
           {
+            type: 'search',
+            position: 'left', 
+          },
+          {
             type: 'docSidebar',
             sidebarId: 'tutorialSidebar',
-            position: 'left',
-            label: 'Docs',
+            position: 'right',
+            label: 'Документация',
           },
-          {to: '/blog', label: 'Blog', position: 'left'},
+          {to: '/blog', label: 'Блог', position: 'right'},
           {type: 'localeDropdown', position: 'right'},
           {
             href: 'https://zennolab.com/en/products/zennodroid/',
@@ -82,23 +91,47 @@ const config = {
           },
         ],
       },
+      algolia: {
+        appId: '2BMNH9NBSS',
+        apiKey: 'a9d097920f0ecd9668a0e40e61329caa',
+        indexName: 'zennodroid-pages',
+        // Опциональные настройки
+        contextualSearch: true,
+        searchPagePath: false,
+      },
       footer: {
         style: 'dark',
         links: [
           {
-            title: 'Docs',
+            title: 'Избранные статьи',
             items: [
               {
-                label: 'Tutorial',
-                to: '/docs/category/начало-работы',
+                label: 'Основные понятия',
+                to: '/docs/get-started/BasicTerms',
+              },
+              {
+                label: 'Подключение реального устройства (ZDE)',
+                to: '/docs/get-started/Connection',
+              },
+              {
+                label: 'Интерфейс ProjectMaker',
+                to: '/docs/category/интерфейс',
+              },
+              {
+                label: 'Логические операции',
+                to: '/docs/category/логика-в-zd',
+              },
+              {
+                label: 'Нюансы работы с Android',
+                to: '/docs/category/android',
               },
             ],
           },
           {
-            title: 'More',
+            title: 'Больше',
             items: [
               {
-                label: 'Blog',
+                label: 'Блог',
                 to: '/blog',
               },
               {
@@ -106,7 +139,7 @@ const config = {
                 href: 'https://zennolab.com/en/products/zennodroid/',
               },
               {
-                label: 'Other ZennoLab Products',
+                label: 'Другие продукты ZennoLab',
                 href: 'https://zennolab.com',
               },
             ],
@@ -115,8 +148,15 @@ const config = {
         copyright: `Copyright © ${new Date().getFullYear()} ZennoDroid by ZennoLab`,
       },
       prism: {
-        theme: prismThemes.github,
-        darkTheme: prismThemes.dracula,
+        theme: prismThemes.oneLight,
+        darkTheme: prismThemes.shadesOfPurple,
+        additionalLanguages: [
+          'json',
+          'java',
+          'bash',
+          'csharp',
+          'http'
+        ],
       },
     }),
 };
